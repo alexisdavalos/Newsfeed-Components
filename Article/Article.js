@@ -98,6 +98,7 @@ const data = [
 
     <span class='expandButton'></span>
   </div>
+  
 
   Hint: You will need to use createElement more than once here!
 
@@ -112,3 +113,39 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+
+<div class="article">
+<h2>{title of the article}</h2>
+<p class="date">{date of the article}</p>
+
+{three separate paragraph elements}
+
+<span class='expandButton'></span>
+</div>
+
+function createPanel(data){
+
+  //create elements
+  const article = document.createElement('div');
+  const title = document.createElement('h2');
+  const date = document.createElement('p');
+  const paragraphOne = document.createElement('p');
+  const paragraphTwo = document.createElement('p');
+  const paragraphThree = document.createElement('p');
+  const expandButton = document.createElement('span');
+
+  //add classes
+  article.classList.add('article');
+  date.classList.add('date');
+  expandButton.classList.add('expandButton');
+
+  // setup structure of the elements
+  article.appendChild(title);
+  article.appendChild(date);
+  article.appendChild(paragraphOne);
+  article.appendChild(paragraphTwo);
+  article.appendChild(paragraphThree);
+  article.appendChild(expandButton);
+
+}
