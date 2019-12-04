@@ -115,14 +115,14 @@ const data = [
 */
 
 
-<div class="article">
+{/* <div class="article">
 <h2>{title of the article}</h2>
 <p class="date">{date of the article}</p>
 
 {three separate paragraph elements}
 
 <span class='expandButton'></span>
-</div>
+</div> */}
 
 function createPanel(data){
 
@@ -133,12 +133,16 @@ function createPanel(data){
   const paragraphOne = document.createElement('p');
   const paragraphTwo = document.createElement('p');
   const paragraphThree = document.createElement('p');
-  const expandButton = document.createElement('span');
+  const buttons = document.createElement('div');
+  const openButton = document.createElement('span');
+  const closeButton = document.createElement('span');
 
   //add classes
   article.classList.add('article');
   date.classList.add('date');
-  expandButton.classList.add('expandButton');
+  openButton.classList.add('expandButton');
+  closeButton.classList.add('expandButton', 'hide')
+  buttons.classList.add('buttons')
 
   // setup structure of the elements
   article.appendChild(title);
@@ -146,6 +150,35 @@ function createPanel(data){
   article.appendChild(paragraphOne);
   article.appendChild(paragraphTwo);
   article.appendChild(paragraphThree);
-  article.appendChild(expandButton);
+  article.appendChild(buttons);
+  buttons.appendChild(openButton);
+  buttons.appendChild(closeButton);
+
+  //set text content
+
+  title.textContent = data.title;
+  date.textContent = data.date;
+  paragraphOne.textContent = data.firstParagraph;
+  paragraphTwo.textContent = data.secondParagraph;
+  paragraphThree.textContent = data.thirdParagraph;
+  openButton.textContent = '\u25bc';
+  closeButton.textContent = '\u25b2';
+
+  //add event listener to toggle paragraph content;
+  buttons.addEventListener('click', event =>{
+    openButton.classList.toggle('hide');
+    closeButton.classList.toggle('hide');
+    article.classList.toggle('article-open');
+    article.style.transition = "0.3s";
+  })
+  return article;
 
 }
+
+//select parent element
+const articles = document.querySelector('.articles');
+
+//populate parent element with data from data object
+data.forEach(article =>{
+  articles.appendChild(createPanel(article))
+})
