@@ -90,7 +90,6 @@
   cursor: pointer;
 }
 .menu {
-  display: none;
   position: fixed;
   top: 75px;
   left: 0;
@@ -101,6 +100,8 @@
   border: 1px solid #004D40;
   border-left: none;
   border-bottom: none;
+  visibility: hidden;
+  opacity: 0;
   z-index: 2;
   /* This set the layer level of the element, it has precendence over initial level of 1*/
 }
@@ -111,7 +112,8 @@
   text-align: center;
 }
 .menu--open {
-  display: block;
+  opacity: 100;
+  visibility: visible;
 }
 html,
 body {

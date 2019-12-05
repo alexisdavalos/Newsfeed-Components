@@ -85,6 +85,15 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Lambda School Showcase',
+    date: 'Dec 1st, 2019',
+    firstParagraph: `Lorem ipsum dolor sit amet consectetur adipisicing elit. A quos in fugit fugiat distinctio ut id velit similique blanditiis, natus soluta nam incidunt? Magnam nihil, voluptate eius maiores asperiores nemo. `,
+
+    secondParagraph: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis eos similique eveniet, perspiciatis odit aspernatur saepe culpa exercitationem! Dolores cum suscipit earum asperiores pariatur tempore eaque repellat quae ipsum. Error. `,
+
+    thirdParagraph: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis mollitia, error dicta eos totam deleniti ut veniam laboriosam vero, voluptatibus tempora quod optio rerum repellendus numquam nesciunt beatae. Debitis, nemo.`
   }
 ];
 
