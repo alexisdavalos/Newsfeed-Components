@@ -85,6 +85,15 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Lambda School Showcase',
+    date: 'Dec 1st, 2019',
+    firstParagraph: `Lorem ipsum dolor sit amet consectetur adipisicing elit. A quos in fugit fugiat distinctio ut id velit similique blanditiis, natus soluta nam incidunt? Magnam nihil, voluptate eius maiores asperiores nemo. `,
+
+    secondParagraph: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis eos similique eveniet, perspiciatis odit aspernatur saepe culpa exercitationem! Dolores cum suscipit earum asperiores pariatur tempore eaque repellat quae ipsum. Error. `,
+
+    thirdParagraph: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis mollitia, error dicta eos totam deleniti ut veniam laboriosam vero, voluptatibus tempora quod optio rerum repellendus numquam nesciunt beatae. Debitis, nemo.`
   }
 ];
 
@@ -98,6 +107,7 @@ const data = [
 
     <span class='expandButton'></span>
   </div>
+  
 
   Hint: You will need to use createElement more than once here!
 
@@ -112,3 +122,72 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+
+{/* <div class="article">
+<h2>{title of the article}</h2>
+<p class="date">{date of the article}</p>
+
+{three separate paragraph elements}
+
+<span class='expandButton'></span>
+</div> */}
+
+function createPanel(data){
+
+  //create elements
+  const article = document.createElement('div');
+  const title = document.createElement('h2');
+  const date = document.createElement('p');
+  const paragraphOne = document.createElement('p');
+  const paragraphTwo = document.createElement('p');
+  const paragraphThree = document.createElement('p');
+  const buttons = document.createElement('div');
+  const openButton = document.createElement('span');
+  const closeButton = document.createElement('span');
+
+  //add classes
+  article.classList.add('article');
+  date.classList.add('date');
+  openButton.classList.add('expandButton');
+  closeButton.classList.add('expandButton', 'hide')
+  buttons.classList.add('buttons')
+
+  // setup structure of the elements
+  article.appendChild(title);
+  article.appendChild(date);
+  article.appendChild(paragraphOne);
+  article.appendChild(paragraphTwo);
+  article.appendChild(paragraphThree);
+  article.appendChild(buttons);
+  buttons.appendChild(openButton);
+  buttons.appendChild(closeButton);
+
+  //set text content
+
+  title.textContent = data.title;
+  date.textContent = data.date;
+  paragraphOne.textContent = data.firstParagraph;
+  paragraphTwo.textContent = data.secondParagraph;
+  paragraphThree.textContent = data.thirdParagraph;
+  openButton.textContent = '\u25bc';
+  closeButton.textContent = '\u25b2';
+
+  //add event listener to toggle paragraph content;
+  buttons.addEventListener('click', event =>{
+    openButton.classList.toggle('hide');
+    closeButton.classList.toggle('hide');
+    article.classList.toggle('article-open');
+    article.style.transition = "0.3s";
+  })
+  return article;
+
+}
+
+//select parent element
+const articles = document.querySelector('.articles');
+
+//populate parent element with data from data object
+data.forEach(article =>{
+  articles.appendChild(createPanel(article))
+})
